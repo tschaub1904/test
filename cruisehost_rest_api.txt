@@ -25,3 +25,6 @@ Wir sollten eventuell erstmal mit ein paar Route anfangen und die Anbindung an u
 - Code Gen für Server Stub und API Dokumentation
 - Implementierung unserer Datenbank und der API Routen
 - Testen mit API Testtools (s.o.)
+
+First Gen:
+http://api.openapi-generator.tech/api/gen/download/be0f1774-f164-411c-93ba-b405b2a5bc44
