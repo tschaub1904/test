@@ -27,4 +27,4 @@ Wir sollten eventuell erstmal mit ein paar Route anfangen und die Anbindung an u
 - Testen mit API Testtools (s.o.)
 
 First Gen:
-http://api.openapi-generator.tech/api/gen/download/be0f1774-f164-411c-93ba-b405b2a5bc44
+http://api.openapi-generator.tech/api/gen/download/bbd58f8c-635c-4848-91a6-56177faa9600
