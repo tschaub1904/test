@@ -1,0 +1,188 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Cruisehost API Test",
+    "version": "1.0",
+    "title": "Cruisehost API",
+    "contact": {
+      "email": "support@cruisehost.net"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags": [
+    {
+      "name": "agency",
+      "description": "Agency related paths",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "https://cpm.cruisehost.net"
+      }
+    }
+  ],
+  "paths": {
+    "/agency": {
+      "get": {
+        "tags": [
+          "agency"
+        ],
+        "summary": "Retrieve a list of agencies",
+        "description": "",
+        "operationId": "getAgencies",
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "agency"
+        ],
+        "summary": "Update an existing agency",
+        "description": "",
+        "operationId": "updateAgency",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Agency"
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Agency not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/agency/{id}": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "BasicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "ID of the agency"
+          }
+        ],
+        "tags": [
+          "agency"
+        ],
+        "summary": "Retrieve a specific agency",
+        "description": "",
+        "operationId": "getAgency",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/requestBodies/Agency"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Agency not found"
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "servers": [
+    {
+      "url": "https://api.cruisehost.net"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "Basic"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    },
+    "requestBodies": {
+      "Agency": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Agency"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/Agency"
+            }
+          }
+        },
+        "description": "An agency",
+        "required": true
+      }
+    },
+    "schemas": {
+      "Agency": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string",
+            "example": "Example Cruises"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Agency status"
+          }
+        },
+        "xml": {
+          "name": "Agency"
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

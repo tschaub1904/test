@@ -1,0 +1,27 @@
+Codegen visual tool:
+- swagger editor: https://editor.swagger.io/ 
+Swagger bietet im Webeditor leider nur einige wenige Framworks zur Codegenerierung an. Laravel steht dort nicht zur Auswahl.
+Um Codegen für weitere Frameworks zu ermöglichen, müssen wir hier das CodeGen Tool von Swagger lokal installieren.
+
+- openapi gen: http://api.openapi-generator.tech/
+Hier gibt es keinen eingebauten Texteditor. Man kann sich hier lediglich die Dokumentation, die aus der OpenAPI Spezifikation gebaut wird, anzeigen lassen.
+Allerdings ist es hier möglich einen Server Stub für eine vielzahl von Frameworks erzeugen zu lassen (inklusive Laravel und/oder Lumen).
+
+OpenAPI Spec:
+- https://swagger.io/resources/open-api/
+- https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#specification
+
+REST API Testtools:
+Um API Calls zu verwalten und einfach zu testen, würde sich ein REST Tool anbieten. Persönlich finde ich die UI von Insomnia übersichtlicher und insgesamt einfacher zu verwenden.
+- Insomnia: https://insomnia.rest/
+- Postman: https://www.postman.com/
+
+ToDo: 
++ Definieren der verwendeten Technologien (Server Framework (Laravel/Lumen), Authentifizierung (Tokenbasierte Auth z.B. https://jwt.io, OAuth o.ä.))
+- Definieren von benötigten API Routen, die von außen vom Kunden zugänglich sein sollen
+- Erstellen eines OpenAPI Dokuments mit Hilfe der OpenAPI Spezifikation. 
+Wir sollten eventuell erstmal mit ein paar Route anfangen und die Anbindung an unsere API, das Framwork und Auth damit testen. Wenn alles funktioniert, wie wir uns es vorgestellt haben, können wir das Dokument für die komplette API erweitern.
+
+- Code Gen für Server Stub und API Dokumentation
+- Implementierung unserer Datenbank und der API Routen
+- Testen mit API Testtools (s.o.)
